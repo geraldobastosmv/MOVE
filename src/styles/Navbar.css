@@ -1,0 +1,23 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #282c34;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    position: inherit;
+
+}
+
+
+ul {
+    font-style: none;
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    gap: 4rem;
+}
