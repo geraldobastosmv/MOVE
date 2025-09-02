@@ -5,7 +5,7 @@ import { linksNav } from "./header.config";
 import { AlignJustify} from 'lucide-react'
 
 const Header = () => (
-  <header className="bg-[var(--pc)] flex justify-between text-[var(--pcv)] items-center px-[var(--sdp)] lg:px-[var(--dp)] py-2">
+  <header className="bg-[var(--pc)] flex justify-between text-[var(--pcv)] items-center px-[var(--sdp)] lg:px-(--dp) py-2">
     <div className="flex items-center gap-3  cursor-pointer">
       <img className="h-10 lg:h-10" src="favicon.svg" alt="" />
       <h1 className="hidden sm:block font-bold text-lg lg:text-3xl hover:text-gray-300">
