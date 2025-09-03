@@ -7,7 +7,7 @@ import backgroundBeach from "../../../assets/bakground-images/beach.png";
 const HeroBooking = () => {
   return (
     <section
-      className="flex flex-col items-center text-center bg-cover bg-center bg-no-repeat py-10 px-4 h-(--dh) content-center items-center justify-center"
+      className="flex flex-col items-center text-center bg-cover bg-center bg-no-repeat py-10 px-4 md:h-(--mdh) lg:h-(--dh) content-center items-center justify-center"
       style={{ backgroundImage: `url(${backgroundDune})` }}
     >
       <h1 className="text-6xl font-bold lg:text-8xl text-white">M.O.V.E</h1>
