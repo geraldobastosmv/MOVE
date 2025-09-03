@@ -8,7 +8,7 @@ export default function HeroSteps() {
       className="lg:h-(--dh) px-(--sdp) py-10 lg:px-(--dp) bg-cover bg-center bg-no-repeat flex flex-col justify-center items-center text-center"
       style={{ backgroundImage: `url(${backgroundBeach})` }}
     >
-      <h1 className="text-4xl uppercase font-bold text-(--sc) mb-1">{title}</h1>
+      <h1 className="text-4xl uppercase font-bold text-(--sc) mb-5">{title}</h1>
       <p className="text-(--bc) font-semibold mb-10">{subtitle}</p>
       <div className="grid lg:grid-cols-4 gap-10">
         {steps.map((step, index) => {
