@@ -1,9 +1,10 @@
 import { title, copywrite, cards, more } from "./heroSecurity.config";
+import beach from '../../../assets/sections-image/beachClient.jpg'
 
-export default function HeroSecurity() {
+/*function HeroSecurity() {
   return (
-    <section className="flex items-center justify-center text-gray-100 body-font bg-[var(--pc)] lg:h-[550px] px-(--sdp) lg:px-(--dp) py-10">
-      <div className="container text-[var(--sc)]">
+    <section className="flex items-center justify-center text-gray-100 body-font bg-(--pc) lg:h-(--dh) px-(--sdp) lg:px-(--dp) py-10">
+      <div className="container text-(--sc)">
         <div className="flex flex-col text-center w-full mb-20">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 uppercase">
             {title}
@@ -47,4 +48,26 @@ export default function HeroSecurity() {
       </div>
     </section>
   );
+}*/
+
+
+export default function HeroSecurity() {
+
+  return (
+    <section className="h-(--dh) px-(--dp) py-10 bg-(--pc) text-(--bc) flex justify-between items-center">
+      <img src={beach} alt="" className="w-1/3 rounded-xl"/>
+      <div className="w-2/3">
+        <h1 className="text-(--sc) font-bold text-2xl uppercase mb-">{title}</h1>
+        <p className="">{copywrite}</p>
+        <div>
+          {cards.map((card) => {
+            return(
+              <div></div>
+            )
+          })}
+        </div>
+      </div>
+      
+    </section>
+  )
 }
