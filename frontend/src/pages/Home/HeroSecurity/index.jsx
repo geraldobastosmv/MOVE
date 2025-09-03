@@ -1,5 +1,6 @@
-import { title, copywrite, cards, more } from "./heroSecurity.config";
-import beach from '../../../assets/sections-image/beachClient.jpg'
+import { title, copywrite, topics} from "./heroSecurity.config";
+import aventura from "../../../assets/sections-image/aventura.jpg";
+import CardSecurity from "./CardSecurity";
 
 /*function HeroSecurity() {
   return (
@@ -50,24 +51,21 @@ import beach from '../../../assets/sections-image/beachClient.jpg'
   );
 }*/
 
-
 export default function HeroSecurity() {
-
   return (
-    <section className="h-(--dh) px-(--dp) py-10 bg-(--pc) text-(--bc) flex justify-between items-center">
-      <img src={beach} alt="" className="w-1/3 rounded-xl"/>
+    <section className="h-(--dh) px-(--dp) py-10 bg-(--pc) text-(--bc) flex justify-between items-center gap-15">
+      <img src={aventura} alt="imagem de aventura" className="w-2/3 lg:w-1/2 rounded-xl" />
       <div className="w-2/3">
-        <h1 className="text-(--sc) font-bold text-2xl uppercase mb-">{title}</h1>
-        <p className="">{copywrite}</p>
-        <div>
-          {cards.map((card) => {
-            return(
-              <div></div>
-            )
+        <h1 className="text-(--sc) font-bold text-4xl uppercase mb-5">
+          {title}
+        </h1>
+        <p className="mb-5">{copywrite}</p>
+        <div className="flex flex-col gap-5 py-5">
+          {topics.map((topic, index) => {
+            return <CardSecurity key={index} icon={topic.icon} title={topic.title}/>;
           })}
         </div>
       </div>
-      
     </section>
-  )
+  );
 }
