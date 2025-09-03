@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col gap-8 px-[var(--dps)] lg:px-[var(--dp)] py-2">
+    <footer className="flex flex-col gap-8 px-(--sdp) lg:px-(--dp) py-2">
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="flex flex-col col-span-2">
           <h2 className="text-xl lg:text-3xl font-semibold mb-4 ">

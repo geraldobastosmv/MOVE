@@ -41,7 +41,7 @@ export default function HeroComents() {
       >
         <ChevronLeft size={40} className="hover:scale-110 duration-500" />
       </button>
-      <div className="flex gap-7">
+      <div className="flex py-10 lg:gap-7">
         {comments
           .slice(startIndex, startIndex + commentPerView)
           .map((comment, index) => {
