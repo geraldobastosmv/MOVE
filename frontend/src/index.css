@@ -16,7 +16,8 @@ body {
 
     --dp: 8rem; /* default padding*/
     --sdp: 4rem; /* default padding*/
-    --dh: 500px;
+    --dh: 550px;
+    --mdh: 500px;
 
     --fs: 12pt;
 }
