@@ -1,20 +1,115 @@
+// schema.prisma
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
+  // Because your DB tables don't have FKs, keep relations in Prisma schema:
+  relationMode = "prisma"
+}
+
+model Role {
+  id   Int    @id @default(autoincrement()) @db.SmallInt
+  name String @unique
+
+  users UserRole[]
+
+  @@map("roles")
+}
+
+model User {
+  id            BigInt   @id @default(autoincrement())
+  full_name     String
+  email         String   @unique @db.Citext
+  phone         String?
+  password_hash String
+  created_at    DateTime @db.Timestamptz
+  updated_at    DateTime @db.Timestamptz
+
+  // Relations
+  roles    UserRole[]
+  vehicles Vehicle[] // owns these vehicles
+  bookings Booking[]  @relation("UserBookings") // rentals made by this user
+
+  @@map("users")
+}
+
+model UserRole {
+  userId BigInt
+  roleId Int    @db.SmallInt
+
+  user User @relation(fields: [userId], references: [id])
+  role Role @relation(fields: [roleId], references: [id])
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+model VehicleCategory {
+  id   Int    @id @default(autoincrement()) @db.SmallInt
+  slug String @unique
+  name String @unique
+
+  vehicles Vehicle[]
+
+  @@map("vehicle_categories")
+}
+
+model Location {
+  id      BigInt  @id @default(autoincrement())
+  country String
+  state   String?
+  city    String
+  address String?
+
+  vehicles Vehicle[]
+
+  @@map("locations")
 }
 
 model Vehicle {
-  id           String   @id @db.Uuid
-  name         String
-  vehicleType  String   @map("vehicle_type")
-  available    Boolean
-  pricePerDay  Decimal  @map("price_per_day") @db.Decimal(10, 2)
-  createdAt    DateTime @map("created_at") @default(now()) @db.Timestamptz(6)
+  id         BigInt @id @default(autoincrement())
+  ownerId    BigInt @map("owner_id")
+  categoryId Int    @map("category_id") @db.SmallInt
+  locationId BigInt @map("location_id")
+
+  title       String
+  description String?
+  brand       String?
+  model       String?
+  model_year  Int?    @db.SmallInt
+  daily_price Decimal @db.Decimal(12, 2)
+  is_active   Boolean
+
+  created_at DateTime @db.Timestamptz
+  updated_at DateTime @db.Timestamptz
+
+  // Relations
+  owner    User            @relation(fields: [ownerId], references: [id])
+  category VehicleCategory @relation(fields: [categoryId], references: [id])
+  location Location        @relation(fields: [locationId], references: [id])
+  bookings Booking[]
 
   @@map("vehicles")
 }
 
+model Booking {
+  id          BigInt   @id @default(autoincrement())
+  vehicleId   BigInt   @map("vehicle_id")
+  renterId    BigInt   @map("renter_id")
+  start_date  DateTime @db.Date
+  end_date    DateTime @db.Date
+  status      String
+  total_price Decimal  @db.Decimal(12, 2)
+  created_at  DateTime @db.Timestamptz
+  updated_at  DateTime @db.Timestamptz
+
+  // Relations
+  vehicle Vehicle @relation(fields: [vehicleId], references: [id])
+  renter  User    @relation("UserBookings", fields: [renterId], references: [id])
+
+  @@map("bookings")
+}
