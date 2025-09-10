@@ -38,6 +38,50 @@ export class VehiclesService {
     return row ? this.toDTO(row) : null;
   }
 
+  async search(filters: {
+    start_date?: string | null;
+    end_date?: string | null;
+    vehicle_category?: string | null; // slug or numeric id
+    location?: string | null; // numeric id as string
+  }): Promise<VehicleDTO[]> {
+    const input = filters || {};
+
+    // Parse category: allow slug or numeric id
+    let categorySlug: string | undefined;
+    let categoryId: number | undefined;
+    if (input.vehicle_category) {
+      if (/^\d+$/.test(input.vehicle_category)) categoryId = Number(input.vehicle_category);
+      else categorySlug = input.vehicle_category;
+    }
+
+    // Parse location: numeric id for Location
+    let locationId: bigint | undefined;
+    if (input.location && /^\d+$/.test(input.location)) {
+      locationId = BigInt(input.location);
+    }
+
+    // Parse dates only if both provided and valid
+    let start: Date | undefined;
+    let end: Date | undefined;
+    if (input.start_date && input.end_date) {
+      const s = new Date(input.start_date);
+      const e = new Date(input.end_date);
+      if (!isNaN(s.getTime()) && !isNaN(e.getTime())) {
+        // Ensure start <= end; if not, swap
+        if (s.getTime() <= e.getTime()) {
+          start = s;
+          end = e;
+        } else {
+          start = e;
+          end = s;
+        }
+      }
+    }
+
+    const rows = await this.repo.findByFilters({ categorySlug, categoryId, locationId, start, end });
+    return rows.map(this.toDTO);
+  }
+
   private toDTO = (v: Vehicle): VehicleDTO => ({
     id: v.id.toString(),
     ownerId: v.ownerId.toString(),
