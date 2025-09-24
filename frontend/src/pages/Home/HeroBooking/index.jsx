@@ -43,7 +43,7 @@ const HeroBooking = () => {
       ) : (
         <>
           <div className="bg-(--pc) p-2  w-full">
-            <div className="flex flex-row bg-(--bc) rounded-2xl text-[8pt] lg:text-sm items-center truncate w-full">
+            <div className="flex flex-row bg-(--bc) rounded-2xl text-[8.3pt] lg:text-sm items-center truncate w-full">
               <ButtonSearch title="localização" label="Selecione o local" />
               <div className="border-l-2 h-10" />
               <ButtonSelect
