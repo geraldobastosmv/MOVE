@@ -7,7 +7,7 @@ export const cardText = [
   {
     id: 'lancha',
     title: "Lancha",
-    link: "lancha",
+    link: "veiculos/lancha",
     description:
       "Mais que transporte, a lancha é luxo, liberdade e momentos inesquecíveis navegando em alto-mar.",
       backgroundImg: imageLancha
@@ -15,7 +15,7 @@ export const cardText = [
   {
     id: 'jet-ski',
     title: "Moto aquática",
-    link: "moto-aquatica",
+    link: "veiculos/moto-aquatica",
     description:
       "O jet ski é adrenalina pura: velocidade, emoção e liberdade em cada curva sobre as ondas.",
       backgroundImg: imageJetSki
@@ -23,7 +23,7 @@ export const cardText = [
   {
     id: 'utv',
     title: "UTV",
-    link: "utv",
+    link: "veiculos/utv",
     description:
       "O UTV é potência sem limites: aventura, segurança e conforto para explorar qualquer terreno extremo.",
       backgroundImg: imageUtv
@@ -31,7 +31,7 @@ export const cardText = [
   {
     id: 'quadriciclo',
     title: "Quadriciclo",
-    link: "quadriciculo",
+    link: "veiculos/quadriciculo",
     description:
       "O quadriciclo é liberdade total: ágil, resistente e pronto para transformar qualquer trilha em diversão.",
     backgroundImg: imageQuadriciculo
