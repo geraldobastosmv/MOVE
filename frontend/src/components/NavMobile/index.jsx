@@ -1,8 +1,10 @@
 import { Search, FileText, CircleUserRound } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function NavMobile() {
   const [isMobile, setIsMobile] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -16,16 +18,20 @@ export default function NavMobile() {
 
   return (
     <>
-      <footer className={`flex flex-row justify-around w-full fixed bottom-0 px-5 py-3 bg-white border-t-1 border-gray-400   ${isMobile? "block": "hidden"}`}>
-        <span className="flex flex-col items-center">
+      <footer
+        className={`flex flex-row justify-around w-full fixed bottom-0 px-5 py-3 bg-white border-t-1 border-gray-400   ${
+          isMobile ? "block" : "hidden"
+        }`}
+      >
+        <span onClick={() => navigate('/busca')} className="flex flex-col items-center">
           <Search />
           <p>Explorar</p>
         </span>
-        <span className="flex flex-col items-center">
+        <span onClick={() => navigate('/alugeis')} className="flex flex-col items-center">
           <FileText />
           <p>Aluguéis</p>
         </span>
-        <span className="flex flex-col items-center">
+        <span onClick={() => navigate('/perfil')} className="flex flex-col items-center">
           <CircleUserRound />
           <p>Perfil</p>
         </span>
