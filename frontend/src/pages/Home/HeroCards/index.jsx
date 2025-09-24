@@ -17,7 +17,7 @@ const HeroCard = () => {
 
   return (
     <section
-      className={`py-5 lg:py lg:h-[var(450px)] flex items-center ${
+      className={`py-5 lg:h-(--dh) flex items-center lg:justify-center ${
         isMobile ? "overflow-x-auto" : ""
       }`}
     >
@@ -39,7 +39,7 @@ const HeroCard = () => {
         </div>
       ) : (
         // DESKTOP: grid fixo
-        <div className="grid grid-cols-4 gap-8 px-(--dp) py-5 justify-center items-center">
+        <div className="grid grid-cols-4 w-full px-(--dp)  items-center gap-8">
           {cardText.map((card, index) => (
             <CardCategory
               key={index}
