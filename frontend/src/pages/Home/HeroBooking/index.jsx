@@ -42,15 +42,15 @@ const HeroBooking = () => {
         </>
       ) : (
         <>
-          <div className="bg-(--pc) p-2  w-full">
-            <div className="flex flex-row bg-(--bc) rounded-2xl text-[8.3pt] lg:text-sm items-center truncate w-full">
+          <div className="bg-(--pc) p-2  w-full lg:px-(--dp)">
+            <div className="flex flex-row bg-(--bc) rounded-2xl text-[8.3pt] lg:text-[12pt] items-center truncate w-full">
               <ButtonSearch title="localização" label="Selecione o local" />
-              <div className="border-l-2 h-10" />
+              <div className="border-l-2 h-8 lg:h-10" />
               <ButtonSelect
                 title="categorias"
                 label="Selecione uma categoria"
               />
-              <div className="border-l-2 h-10" />
+              <div className="border-l-2 h-8 lg:h-10" />
               <ButtonData />
             </div>
           </div>

@@ -3,7 +3,7 @@
 body {
 	height: 100vh; /* 100% da tela do nosso monitor */
     box-sizing: border-box; /* Garante que os elementos filhos não saiam do elemento pai */
-	background-color: var(--pcv);
+	background-color: var(--bc);
 }
 
 :root {
