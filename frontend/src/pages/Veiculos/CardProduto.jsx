@@ -36,12 +36,12 @@ const CardProduto = ({
     tipoClasses[tipoNormalizado] || "bg-gray-100 text-gray-800 border-gray-300";
 
   return (
-    <article className="flex flex-col sm:flex-row bg-white p-4 rounded-2xl border border-gray-200 shadow-sm gap-4 max-w-full sm:max-w-2xl mx-auto transition-transform hover:scale-[1.02] duration-300 w-full">
+    <article className="flex flex-col bg-white p-2 rounded-2xl border border-gray-200 shadow-sm gap-4 max-w-full sm:max-w-2xl mx-auto transition-transform hover:scale-[1.02] duration-300 w-full">
       {/* Imagem do produto */}
       <img
         src={imagem || "/fallback.jpg"}
         alt={`Imagem ilustrativa de ${titulo || "produto"}`}
-        className="h-48 sm:h-40 sm:w-56 object-cover rounded-xl select-none"
+        className="h-60 md:h-50 lg:h-60  md:w-90 lg:w-100 object-cover rounded-xl select-none"
         loading="lazy"
       />
 

@@ -36,20 +36,20 @@ export default function Veiculos({ tipo }) {
     <>
       <HeroBooking />
 
-      <section className="px-[var(--sdp)] lg:px-[var(--dp)] py-6 w-full max-w-7xl mx-auto">
+      <section className="px-[var(--sdp)] lg:px-[var(--dp)] py-6 w-full mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-4">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm lg:text-lg text-gray-600">
             {veiculosFiltrados.length}{" "}
             {veiculosFiltrados.length === 1
               ? "anúncio encontrado"
               : "anúncios encontrados"}
           </p>
-          <p className="text-sm text-gray-500 font-medium">Mais relevantes</p>
+          <p className="text-sm lg:text-lg text-gray-500 font-medium">Mais relevantes</p>
         </div>
 
         {/* Lista */}
-        <div className="flex flex-col gap-4 w-full">
+        <div className="grid lg:grid-cols-4 gap-4 ">
           {veiculosFiltrados.length > 0 ? (
             veiculosFiltrados.map((veiculo) => (
               <CardProduto
