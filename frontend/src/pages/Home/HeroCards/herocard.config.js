@@ -31,7 +31,7 @@ export const cardText = [
   {
     id: 'quadriciclo',
     title: "Quadriciclo",
-    link: "veiculos/quadriciculo",
+    link: "veiculos/quadriciclo",
     description:
       "O quadriciclo é liberdade total: ágil, resistente e pronto para transformar qualquer trilha em diversão.",
     backgroundImg: imageQuadriciculo

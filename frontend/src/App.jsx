@@ -15,7 +15,7 @@ function App() {
           <Route path='/veiculos/lancha' element={<Veiculos tipo="lancha"/>}/>
           <Route path='/veiculos/utv' element={<Veiculos tipo="utv"/>}/>
           <Route path='/veiculos/moto-aquatica' element={<Veiculos tipo="motoAquatica"/>}/>
-          <Route path='/veiculos/quadriciculo' element={<Veiculos tipo="quadriciculo"/>}/>
+          <Route path='/veiculos/quadriciclo' element={<Veiculos tipo="quadriciclo"/>}/>
         </Route>
         <Route path='*' element={<Page404/>}/>
       </Routes>
