@@ -1,6 +1,6 @@
 import { dados } from "./veiculos.config.js";
 import HeroBooking from "../Home/HeroBooking/";
-import CardProduto from './CardProduto.jsx'
+import CardProduto from "./CardProduto.jsx";
 import PropTypes from "prop-types";
 
 /**
@@ -13,8 +13,10 @@ import PropTypes from "prop-types";
 export default function Veiculos({ tipo }) {
   // Normaliza o tipo recebido da rota (ex: "moto-aquatica" → "moto aquatica")
   const tipoNormalizado = tipo
-    ? tipo.toLowerCase().replace(/-/g, " ").trim()
+    ? tipo.toLowerCase()
     : "todos";
+
+  console.log(tipoNormalizado);
 
   // Define os tipos válidos de veículos
   const tiposValidos = ["lancha", "moto aquatica", "utv", "quadriciclo"];
@@ -23,12 +25,13 @@ export default function Veiculos({ tipo }) {
   const veiculosFiltrados =
     tipoNormalizado === "todos"
       ? dados.filter((item) =>
-          tiposValidos.includes(item.tipo.toLowerCase().trim())
+          tiposValidos.includes(item.tipo.toLowerCase())
         )
       : dados.filter(
-          (item) => item.tipo.toLowerCase().trim() === tipoNormalizado
+          (item) => item.tipo.toLowerCase() === tipoNormalizado
         );
 
+  console.log(tipoNormalizado);
   return (
     <>
       <HeroBooking />

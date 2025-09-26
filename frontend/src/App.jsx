@@ -14,8 +14,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path='/veiculos/lancha' element={<Veiculos tipo="lancha"/>}/>
           <Route path='/veiculos/utv' element={<Veiculos tipo="utv"/>}/>
-          <Route path='/veiculos/moto-aquatica' element={<Veiculos tipo="motoAquatica"/>}/>
+          <Route path='/veiculos/moto-aquatica' element={<Veiculos tipo="moto aquatica"/>}/>
           <Route path='/veiculos/quadriciclo' element={<Veiculos tipo="quadriciclo"/>}/>
+          <Route path='/veiculos/' element={<Veiculos tipo="todos"/>}/>
         </Route>
         <Route path='*' element={<Page404/>}/>
       </Routes>

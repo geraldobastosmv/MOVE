@@ -23,7 +23,7 @@ const CardProduto = ({
   duracao,
   imagem,
 }) => {
-  const tipoNormalizado = tipo?.toLowerCase().trim();
+  const tipoNormalizado = tipo?.toLowerCase();
 
   const tipoClasses = {
     lancha: "bg-blue-100 text-blue-800 border-blue-300",

@@ -23,7 +23,7 @@ export default function NavMobile() {
           isMobile ? "block" : "hidden"
         }`}
       >
-        <span onClick={() => navigate('/busca')} className="flex flex-col items-center">
+        <span onClick={() => navigate('/veiculos')} className="flex flex-col items-center">
           <Search />
           <p>Explorar</p>
         </span>
