@@ -22,6 +22,18 @@ export default function CardProduto({
   duracao,
   imagem,
 }) {
+  const tipoClasses = {
+    lancha: "bg-blue-100 text-blue-800 border-blue-300",
+    "moto aquatica": "bg-red-100 text-red-800 border-red-300",
+    utv: "bg-yellow-100 text-yellow-800 border-yellow-300",
+    quadriciclo: "bg-green-100 text-green-800 border-green-300",
+  };
+
+  // Classe padrão (fallback)
+  const classeTipo =
+    tipoClasses[tipo.toLowerCase()] ||
+    "bg-gray-100 text-gray-800 border-gray-300";
+
   return (
     <div className="flex flex-col sm:flex-row bg-white p-4 rounded-2xl border border-gray-200 shadow-sm gap-4 max-w-full sm:max-w-2xl mx-auto transition-all w-full">
       {/* Imagem do produto */}
@@ -36,7 +48,9 @@ export default function CardProduto({
         <div className="space-y-1">
           <h2 className="font-semibold text-lg text-gray-900">{titulo}</h2>
 
-          <p className="inline-block text-[10pt] bg-blue-100 text-blue-800 px-3 py-0.5 rounded-full border border-blue-300">
+          <p
+            className={`inline-block text-[10pt] px-3 py-0.5 rounded-full border uppercase ${classeTipo}`}
+          >
             {tipo}
           </p>
 
@@ -51,7 +65,8 @@ export default function CardProduto({
           </div>
 
           <div className="text-[15px] font-semibold text-gray-800 mt-2">
-            {preco} <span className="text-sm font-normal text-gray-600">{duracao}</span>
+            {preco}{" "}
+            <span className="text-sm font-normal text-gray-600">{duracao}</span>
           </div>
         </div>
 

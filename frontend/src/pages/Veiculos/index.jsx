@@ -27,7 +27,7 @@ export default function Veiculos({ tipo }) {
 
         {/* Lista de cards */}
         <div className="flex flex-col gap-4 w-full">
-          {veiculos.map((veiculo) => (
+          {dados.map((veiculo) => (
             <CardProduto
               key={veiculo.id}
               titulo={veiculo.nome}

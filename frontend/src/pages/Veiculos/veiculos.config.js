@@ -1,3 +1,5 @@
+import fotoProduto from '../../assets/produto-imagens/imageProduto.png'
+
 export const dados = [
   {
     "id": 1,
@@ -5,17 +7,17 @@ export const dados = [
     "nome": "Lancha FS 180",
     "ano": 2020,
     "km": 200,
-    "preco": 180000,
-    "imagem": "/img/lancha.jpg"
+    "preco": 1800,
+    "imagem": fotoProduto
   },
   {
     "id": 2,
-    "tipo": "moto-aquatica",
+    "tipo": "moto aquatica",
     "nome": "SeaDoo GTX 300",
     "ano": 2022,
     "km": 20,
-    "preco": 120000,
-    "imagem": "/img/seadoo.jpg"
+    "preco": 1200,
+    "imagem": fotoProduto
   },
   {
     "id": 3,
@@ -23,8 +25,8 @@ export const dados = [
     "nome": "Can-Am Maverick X3",
     "ano": 2021,
     "km": 100,
-    "preco": 150000,
-    "imagem": "/img/utv.jpg"
+    "preco": 2200,
+    "imagem": fotoProduto
   },
   {
     "id": 4,
@@ -32,7 +34,7 @@ export const dados = [
     "nome": "Honda TRX 420",
     "ano": 2019,
     "km": 500,
-    "preco": 40000,
-    "imagem": "/img/quadriciclo.jpg"
+    "preco": 4000,
+    "imagem": fotoProduto
   }
 ]
