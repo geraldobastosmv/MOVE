@@ -1,23 +1,24 @@
 @import "tailwindcss";
 
 body {
-	height: 100vh; /* 100% da tela do nosso monitor */
-    box-sizing: border-box; /* Garante que os elementos filhos não saiam do elemento pai */
-	background-color: var(--bc);
+  height: 100vh; /* 100% da tela do nosso monitor */
+  box-sizing: border-box; /* Garante que os elementos filhos não saiam do elemento pai */
+  background-color: var(--bc);
 }
 
 :root {
-    --pc: #10273b; /*primary color*/
-    --pcv: #F6F7F8; /*primary color variant*/
-    --sc: #d9a96a; /*second color*/
-    --sch: #e2b679; /*second color hover*/
-	--bc: #F2F4F3; /*background color*/
+  --pc: #10273b; /*primary color*/
+  --pcv: #f6f7f8; /*primary color variant*/
+  --sc: #d9a96a; /*second color*/
+  --sch: #e2b679; /*second color hover*/
+  --bc: #f2f4f3; /*background color*/
+  --bbc: #D9D9D9;
 
+  --dp: 8rem; /* default padding*/
+  --mdp: 3rem; /* medium default padding */
+  --sdp: 1rem; /* small default padding*/
+  --dh: 550px;
+  --mdh: 500px;
 
-    --dp: 8rem; /* default padding*/
-    --sdp: 1rem; /* default padding*/
-    --dh: 550px;
-    --mdh: 500px;
-
-    --fs: 12pt;
+  --fs: 12pt;
 }
