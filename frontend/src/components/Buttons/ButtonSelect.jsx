@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Check } from "lucide-react";
 
 /**
- * Componente ButtonSelect (multi-select estilizado)
+ * Componente ButtonSelect (multi-select estilizado com fechamento automático)
  *
  * @component
  * @param {Object} props - Propriedades do componente
@@ -22,19 +22,30 @@ const ButtonSelect = ({ title, label }) => {
 
   const [selectedList, setSelectedList] = useState([]);
   const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleSelection = (item) => {
-    if (selectedList.some((s) => s.title === item.title)) {
-      // Se já está selecionado, remove
-      setSelectedList(selectedList.filter((s) => s.title !== item.title));
-    } else {
-      // Se não está, adiciona
-      setSelectedList([...selectedList, item]);
-    }
+    setSelectedList((prev) =>
+      prev.some((s) => s.title === item.title)
+        ? prev.filter((s) => s.title !== item.title)
+        : [...prev, item]
+    );
   };
 
+  // Fecha dropdown ao clicar fora
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <div className="relative w-full">
+    <div className="relative w-full" ref={dropdownRef}>
       {/* Botão principal */}
       <button
         type="button"
@@ -51,7 +62,7 @@ const ButtonSelect = ({ title, label }) => {
 
       {/* Dropdown */}
       {open && (
-        <div className="text-left absolute mt-2 bg-white rounded-2xl shadow-lg p-2 w-full z-10 text-[11pt] lg:text-sm">
+        <div className="absolute mt-2 bg-white rounded-2xl shadow-lg p-2 w-full z-10">
           {categorias.map((item) => {
             const isSelected = selectedList.some((s) => s.title === item.title);
             return (
