@@ -1,10 +1,10 @@
 // src/App.jsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainLayout from './layouts/Main';
-import Home from './pages/Home';
-import Veiculos from './pages/Veiculos';
-import Page404 from './pages/Page404';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./layouts/Main";
+import Home from "./pages/Home";
+import Veiculos from "./pages/Veiculos";
+import Anuncio from "./pages/Anuncio";
+import Page404 from "./pages/Page404";
 
 function App() {
   return (
@@ -12,13 +12,20 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path='/veiculos/lancha' element={<Veiculos tipo="lancha"/>}/>
-          <Route path='/veiculos/utv' element={<Veiculos tipo="utv"/>}/>
-          <Route path='/veiculos/moto-aquatica' element={<Veiculos tipo="moto aquatica"/>}/>
-          <Route path='/veiculos/quadriciclo' element={<Veiculos tipo="quadriciclo"/>}/>
-          <Route path='/veiculos/' element={<Veiculos tipo="todos"/>}/>
+          <Route path="/veiculos/lancha" element={<Veiculos tipo="lancha" />} />
+          <Route path="/veiculos/utv" element={<Veiculos tipo="utv" />} />
+          <Route
+            path="/veiculos/moto-aquatica"
+            element={<Veiculos tipo="moto aquatica" />}
+          />
+          <Route
+            path="/veiculos/quadriciclo"
+            element={<Veiculos tipo="quadriciclo" />}
+          />
+          <Route path="/veiculos/" element={<Veiculos tipo="todos" />} />
+          <Route path="/anuncio/:id" element={<Anuncio />} />
         </Route>
-        <Route path='*' element={<Page404/>}/>
+        <Route path="*" element={<Page404 />} />
       </Routes>
     </BrowserRouter>
   );

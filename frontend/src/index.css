@@ -14,7 +14,7 @@ body {
   --bc: #f2f4f3; /*background color*/
   --bbc: #D9D9D9;
 
-  --dp: 8rem; /* default padding*/
+  --dp: 6rem; /* default padding*/
   --mdp: 3rem; /* medium default padding */
   --sdp: 1rem; /* small default padding*/
   --dh: 550px;

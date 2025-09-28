@@ -1,4 +1,5 @@
 import { MapPin, Calendar } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
 /**
@@ -12,6 +13,7 @@ import PropTypes from "prop-types";
  * @param {string} props.preco - Preço formatado (ex: R$ 1.500,00)
  * @param {string} props.duracao - Duração do aluguel (ex: por 1 dia)
  * @param {string} props.imagem - Caminho ou URL da imagem
+ * @param {string} props.id- Usado para caminho da URL do anuncio*
  * @returns {JSX.Element} Card de exibição do produto
  */
 const CardProduto = ({
@@ -22,8 +24,10 @@ const CardProduto = ({
   preco,
   duracao,
   imagem,
+  id,
 }) => {
   const tipoNormalizado = tipo?.toLowerCase();
+  const navigate = useNavigate("/");
 
   const tipoClasses = {
     lancha: "bg-blue-100 text-blue-800 border-blue-300",
@@ -87,6 +91,7 @@ const CardProduto = ({
           <button
             type="button"
             className="w-full bg-[var(--pc)] text-white font-medium text-sm py-2 rounded-full hover:bg-[#08182e] transition"
+            onClick={() => navigate("/anuncio/"+id)}
           >
             Alugar
           </button>

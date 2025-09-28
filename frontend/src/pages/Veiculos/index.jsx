@@ -1,4 +1,4 @@
-import { dados } from "./veiculos.config.js";
+import { dados } from "../../data/anuncios.js";
 import HeroBooking from "../Home/HeroBooking/";
 import CardProduto from "./CardProduto.jsx";
 import PropTypes from "prop-types";
@@ -54,6 +54,7 @@ export default function Veiculos({ tipo }) {
             veiculosFiltrados.map((veiculo) => (
               <CardProduto
                 key={veiculo.id}
+                id={veiculo.id}
                 titulo={veiculo.nome}
                 tipo={veiculo.tipo}
                 localizacao={veiculo.localizacao || "Brasília, DF - Lago Sul"}
