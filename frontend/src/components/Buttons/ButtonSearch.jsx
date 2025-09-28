@@ -58,6 +58,7 @@ const ButtonSearch = ({ title, label }) => {
         />
       </button>
 
+      {/*DropDown*/}
       {open && (
         <div className="absolute z-10 mt-3 w-full bg-(--pcv) border border-gray-200 rounded-lg shadow-lg max-h-77 overflow-y-auto">
           {filteredOptions.length === 0 && (
