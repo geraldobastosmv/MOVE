@@ -62,7 +62,7 @@ const ButtonSelect = ({ title, label }) => {
 
       {/* Dropdown */}
       {open && (
-        <div className="text-left absolute mt-2 bg-white rounded-2xl shadow-lg p-2 w-full z-10">
+        <div className="absolute mt-2 bg-white rounded-2xl shadow-lg p-2 w-full z-10">
           {categorias.map((item) => {
             const isSelected = selectedList.some((s) => s.title === item.title);
             return (
