@@ -30,7 +30,7 @@ const Header = () => {
         </ul>
       </nav>
       <div className="flex gap-3 lg:gap-5 font-semibold items-center">
-        <button className="hover:text-gray-300">Entrar</button>
+        <Link to={"/cadastro"}><button className="hover:text-gray-300">Entrar</button></Link>
         <button className="text-black bg-[var(--sc)] px-3 py-1 rounded-full hover:bg-[var(--sch)] hover:text-gray-250 hover:scale-102 duration-300">
           Cadastre-se
         </button>

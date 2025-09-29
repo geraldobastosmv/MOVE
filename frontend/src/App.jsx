@@ -4,6 +4,8 @@ import MainLayout from "./layouts/Main";
 import Home from "./pages/Home";
 import Veiculos from "./pages/Veiculos";
 import Anuncio from "./pages/Anuncio";
+import Cadastro from "./pages/Cadastro/";
+import Login from "./pages/Admin/Login";
 import Page404 from "./pages/Page404";
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           />
           <Route path="/veiculos/" element={<Veiculos tipo="todos" />} />
           <Route path="/anuncio/:id" element={<Anuncio />} />
+          <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/admin/login" element={<Login/>}/>
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>
