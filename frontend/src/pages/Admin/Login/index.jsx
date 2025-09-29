@@ -1,17 +1,13 @@
 import { useState } from "react";
 
 const Login = () => {
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState();
+  const [password, setPassword] = useState();
 
   function handleLogin() {
-    console.log(
-        userName,
-        password
-    )
+    console.log(userName, password);
   }
 
-  
   return (
     <section className="h-130 flex items-center justify-center mb-45">
       <div className="flex flex-col gap-6 items-center justify-center w-full max-w-md">
@@ -23,6 +19,7 @@ const Login = () => {
             required
             className="px-4 py-3 rounded-lg border border-gray-400 focus:outline-none focus:ring-2 focus:ring-(--pc)  font-medium transition"
             autoComplete="username"
+            onChange={() => setUserName(userName)}
             value={userName}
           />
           <input
@@ -31,6 +28,7 @@ const Login = () => {
             required
             className="px-4 py-3 rounded-lg border border-gray-400 focus:outline-none focus:ring-2 focus:ring-(--pc) font-medium transition"
             autoComplete="current-password"
+            onChange={() => setPassword(password)}
             value={password}
           />
           <button
