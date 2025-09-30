@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <header className="bg-[var(--pc)] flex justify-between text-[var(--pcv)] items-center px-[var(--sdp)] md:px-[2rem] lg:px-(--dp) py-2">
       <div className="flex items-center gap-3 cursor-pointer">
-        <span className="block lg:hidden">
+        <span className="block lg:hidden" onClick={() => navigate(-1)}>
           <ArrowLeft />
         </span>
         <img className="h-10 lg:h-10" src="favicon.svg" alt="Logo" />
