@@ -21,8 +21,19 @@ const Cadastro = () => {
   const [updatedAt, setUpdatedAt] = useState();
   const [password, setPassword] = useState();
 
-  function handleCadastro() {
-    console.log(userName, password);
+  function handleCadastro(e) {
+    e.preventDefault();
+    const now = new Date().toISOString();
+    setCreatedAt(now);
+    setUpdatedAt(now);
+    console.log({
+      userName,
+      email,
+      phone,
+      password,
+      createdAt: now,
+      updatedAt: now,
+    });
   }
 
   return (
@@ -78,6 +89,7 @@ const Cadastro = () => {
           >
             Entrar
           </button>
+          {}
         </form>
         <div className="flex gap-2">
           <p>Já tem cadastro?</p>
