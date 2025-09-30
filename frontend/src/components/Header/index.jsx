@@ -2,7 +2,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { linksNav } from "./header.config";
-import { useNavigate } from "react-router-dom";
 import { AlignJustify, ArrowLeft } from "lucide-react";
 
 const Header = () => {
