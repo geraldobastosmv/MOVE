@@ -43,7 +43,7 @@ const Login = () => {
         <div className="flex gap-2">
           <p>Não tem cadastro?</p>
           <Link to={"/cadastro"}>
-            <p>Clique em cadastre-se</p>
+            <p className="text-(--pc) font-semibold">Clique em cadastre-se</p>
           </Link>
         </div>
       </div>

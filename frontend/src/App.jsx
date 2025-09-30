@@ -8,6 +8,7 @@ import Cadastro from "./pages/CadastroUsuario/Cadastro";
 import Entrar from "./pages/CadastroUsuario/Entrar";
 import Login from "./pages/Admin/Login";
 import Page404 from "./pages/Page404";
+import CadastroVeiculo from "./pages/CadastroVeiculo";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             element={<Veiculos tipo="quadriciclo" />}
           />
           <Route path="/veiculos/" element={<Veiculos tipo="todos" />} />
+          <Route path="/cadastro-veiculo/" element={<CadastroVeiculo/>} />
           <Route path="/anuncio/:id" element={<Anuncio />} />
           <Route path="/admin/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
