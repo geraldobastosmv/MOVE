@@ -1,25 +1,4 @@
-import { useState } from "react";
-
-const Login = () => {
-  const [userName, setUserName] = useState();
-  const [password, setPassword] = useState();
-
-  function handleLogin() {
-    console.log(userName, password);
-  }
-
-{/*
-CREATE TABLE users (
-  id              BIGSERIAL PRIMARY KEY,
-  full_name       TEXT        NOT NULL,
-  email           CITEXT      NOT NULL UNIQUE,
-  phone           TEXT,
-  password_hash   TEXT        NOT NULL,
-  created_at      TIMESTAMPTZ NOT NULL,
-  updated_at      TIMESTAMPTZ NOT NULL
-);
-*/}
-
+const CadastroVeiculo = () => {
   return (
     <section className="h-130 flex items-center justify-center mb-45 px-(--sdp)">
       <div className="flex flex-col gap-6 items-center justify-center w-full max-w-md">
@@ -34,26 +13,17 @@ CREATE TABLE users (
             onChange={() => setUserName(userName)}
             value={userName}
           />
-          <input
-            type="password"
-            placeholder="Digite a senha"
-            required
-            className="px-4 py-3 rounded-lg border border-gray-400 focus:outline-none focus:ring-2 focus:ring-(--pc) font-medium transition"
-            autoComplete="current-password"
-            onChange={() => setPassword(password)}
-            value={password}
-          />
+
+          
           <button
             type="submit"
             className="rounded-full bg-(--pc) text-white px-6 py-3 font-semibold shadow transition cursor-pointer"
             onClick={handleLogin}
           >
-            Entrar
+            Cadastrar
           </button>
         </form>
       </div>
     </section>
   );
 };
-
-export default Login;

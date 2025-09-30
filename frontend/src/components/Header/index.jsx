@@ -11,7 +11,9 @@ const Header = () => {
   return (
     <header className="bg-[var(--pc)] flex justify-between text-[var(--pcv)] items-center px-[var(--sdp)] md:px-[2rem]  lg:px-(--dp) py-2">
       <div className="flex items-center gap-3  cursor-pointer">
-        <span className="block lg:hidden"><ArrowLeft /></span>
+        <span className="block lg:hidden">
+          <ArrowLeft />
+        </span>
         <img className="h-10 lg:h-10" src="favicon.svg" alt="" />
         <h1
           className="hidden sm:block font-bold text-lg lg:text-3xl hover:text-gray-300"
@@ -30,10 +32,14 @@ const Header = () => {
         </ul>
       </nav>
       <div className="flex gap-3 lg:gap-5 font-semibold items-center">
-        <Link to={"/admin/login"}><button className="hover:text-gray-300">Entrar</button></Link>
-        <button className="text-black bg-[var(--sc)] px-3 py-1 rounded-full hover:bg-[var(--sch)] hover:text-gray-250 hover:scale-102 duration-300">
-          Cadastre-se
-        </button>
+        <Link to={"/entrar"}>
+          <button className="hover:text-gray-300">Entrar</button>
+        </Link>
+        <Link to={"/cadastro"}>
+          <button className="text-black bg-[var(--sc)] px-3 py-1 rounded-full hover:bg-[var(--sch)] hover:text-gray-250 hover:scale-102 duration-300">
+            Cadastre-se
+          </button>
+        </Link>
         <div className="block sm:hidden">
           <button>
             <AlignJustify size={30} />
