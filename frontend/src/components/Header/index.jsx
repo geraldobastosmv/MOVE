@@ -1,6 +1,6 @@
 // src/components/Header.jsx
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { linksNav } from "./header.config";
 import { AlignJustify, ArrowLeft } from "lucide-react";
 
