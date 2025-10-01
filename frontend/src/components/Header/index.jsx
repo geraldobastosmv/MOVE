@@ -13,12 +13,12 @@ const Header = () => {
   return (
     <header className="bg-[var(--pc)] flex justify-between text-[var(--pcv)] items-center px-[var(--sdp)] md:px-[2rem]  lg:px-(--dp) py-2">
       <div className="flex items-center gap-3  cursor-pointer">
-        {!isHome && (
-          <button onClick={() => navigate(-1)} className="block lg:hidden">
-            <ArrowLeft />
-          </button>
-        )}
-        <Link to={"/"}>
+        <Link to={"/"} className="flex gap-3">
+          {!isHome && (
+            <button onClick={() => navigate(-1)} className="block lg:hidden">
+              <ArrowLeft />
+            </button>
+          )}
           <img className="h-10 lg:h-10" src="favicon.svg" alt="" />
           <h1 className="hidden sm:block font-bold text-lg lg:text-3xl hover:text-gray-300">
             M.O.V.E
