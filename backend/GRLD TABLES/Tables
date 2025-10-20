@@ -1,0 +1,90 @@
+CREATE TABLE dados_fornecedor (
+    id_fornecedor SERIAL PRIMARY KEY,
+    nome_completo VARCHAR(150) NOT NULL,
+    cpf CHAR(11) UNIQUE NOT NULL,
+    data_nascimento DATE NOT NULL,
+    email CITEXT UNIQUE NOT NULL,
+    whatsapp VARCHAR(20),
+    endereco_completo TEXT NOT NULL,
+    comprovante_residencia TEXT, -- caminho/URL do arquivo enviado
+    documento_foto TEXT,         -- caminho/URL do arquivo (RG ou CNH)
+    criado_em TIMESTAMPTZ DEFAULT NOW()
+);
+
+
+/*
+*Notas sobre colunas não incluídas:
+
+*- selfie/Liveness (verificação antifraude): não precisa
+*- profissão/ocupação: não precisa
+*- rede social: não precisa
+*- dados bancários: será criada em outra tabela
+*- declaração PEP: (não sei o que é isso)
+*- aceites (pop up) (vsf luiz)
+*/
+
+
+CREATE TABLE pessoa_juridica (
+    id_pj SERIAL PRIMARY KEY,
+    razao_social VARCHAR(150) NOT NULL,
+    cnpj CHAR(14) UNIQUE NOT NULL,
+    nome_fantasia VARCHAR(150),
+    endereco_fiscal TEXT NOT NULL,
+    ie_im_cnae VARCHAR(100), -- campo para armazenar as três informações combinadas (IE, IM, CNAE)
+    representante_legal_nome VARCHAR(150) NOT NULL,
+    representante_legal_cpf CHAR(11) NOT NULL,
+    representante_legal_email CITEXT NOT NULL,
+    representante_legal_whatsapp VARCHAR(20),
+    contrato_social TEXT, -- caminho ou URL do arquivo enviado
+    aceite_pj BOOLEAN DEFAULT FALSE,
+    criado_em TIMESTAMPTZ DEFAULT NOW()
+);
+
+
+-- *não criei coluna 
+-- *dados bancários (outra tabela)
+
+
+CREATE TABLE preferencias_operacionais_do_dono (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    local_retirada_devolucao VARCHAR(255) NOT NULL,
+    disponibilidade TEXT, -- Pode incluir calendário ou períodos de blackout
+    exigencias_locatario TEXT,
+    regras_uso TEXT,
+    entrega_retirada_realizada_por ENUM('Dono', 'MOVE', 'Parceiro') NOT NULL
+);
+-- *não criei coluna Skipper/Instrutor disponível (não precisa)
+
+
+CREATE TABLE seguro_e_responsabilidade (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    opcao_seguro ENUM('Apólice própria', 'Seguro MOVE') NOT NULL,
+    numero_apolice VARCHAR(50),           -- Preenchido apenas se "Apólice própria"
+    coberturas TEXT,                      -- Preenchido apenas se "Apólice própria"
+    franquia DECIMAL(10,2),               -- Preenchido apenas se "Apólice própria"
+    upload_apolice VARCHAR(255)           -- Caminho ou link do arquivo, se houver
+);
+
+--* Não criei algumas colunas (outra tabela/financeiro)
+--* Valor estimado do bem
+--* Valor da caução
+
+
+CREATE TABLE dados_veiculo_equipamento (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    categoria ENUM('Jet ski', 'Lancha', 'Veleiro', 'UTV', 'Quadriciclo', 'Moto aquática') NOT NULL,
+    marca VARCHAR(100),
+    modelo VARCHAR(100),
+    ano YEAR,
+    cor VARCHAR(50),
+    numero_serie_chassi_hin VARCHAR(100),
+    comprovante_propriedade ENUM('NF', 'CRLV', 'TIE', 'Declaração'),
+    horas_motor_km VARCHAR(50),
+    ultima_revisao DATE,
+    acessorios_incluidos TEXT,
+    itens_obrigatorios_seguranca TEXT,
+    rastreador_alarme BOOLEAN,
+    local_guarda VARCHAR(100)
+);
+
+
